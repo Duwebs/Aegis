@@ -54,31 +54,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Theme Toggle Button Style */
-#theme-toggle {
-    transition: transform 0.2s;
-}
-
-#theme-toggle:active {
-    transform: scale(0.9);
-}
-
-#overlay {
-    height: 90vh; /* Itna upar aayega */
-    overflow-y: auto;
-}
-
-/* style.css */
-body {
-    min-height: vh; /* Extra height taaki scroll ho sake */
-}
-
-
-body {
-    transition: background-color 0.1s; /* Fast switch */
-    /* Hum clip-path ko JavaScript se control karenge */
-}
-
 
 
 /* style.css */
