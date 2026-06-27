@@ -1,34 +1,51 @@
 const toggleBtn = document.getElementById('theme-toggle');
-const ripple = document.getElementById('ripple-overlay');
+const container = document.getElementById('app-container');
 
 toggleBtn.addEventListener('click', (e) => {
-    const rect = toggleBtn.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
+    // 1. Click position
+    const x = e.clientX;
+    const y = e.clientY;
 
-    // 1. Current mode ke hisaab se ripple color set karo
+    // 2. Ripple layer create karo (body ke direct child ki tarah)
+    const ripple = document.createElement('div');
+    ripple.style.position = 'fixed';
+    ripple.style.top = '0';
+    ripple.style.left = '0';
+    ripple.style.width = '100vw';
+    ripple.style.height = '100vh';
+    ripple.style.zIndex = '5'; // Container (z-10) ke piche
+    ripple.style.pointerEvents = 'none';
+    
+    // Theme color decide karo
     const isDark = document.body.classList.contains('bg-slate-950');
     ripple.style.backgroundColor = isDark ? '#ffffff' : '#020617';
-    ripple.style.opacity = '1';
+    
+    // Ripple start
+    ripple.style.clipPath = `circle(0% at ${x}px ${y}px)`;
+    document.body.appendChild(ripple);
 
-    // 2. Ripple expand karo
-    ripple.style.transition = 'clip-path 0.6s ease-in-out';
-    ripple.style.clipPath = `circle(150% at ${x}px ${y}px)`;
+    // 3. Ripple expand (Telegram animation)
+    requestAnimationFrame(() => {
+        ripple.style.transition = 'clip-path 0.6s ease-in-out';
+        ripple.style.clipPath = `circle(150% at ${x}px ${y}px)`;
+    });
 
-    // 3. Animation ke beech mein background change karo (0.3s par)
+    // 4. Background change (Content bina hile)
     setTimeout(() => {
         document.body.classList.toggle('bg-slate-950');
         document.body.classList.toggle('bg-white');
-        document.body.classList.toggle('text-white');
-        document.body.classList.toggle('text-slate-900');
+        
+        // Text color toggle
+        container.classList.toggle('text-white');
+        container.classList.toggle('text-slate-900');
     }, 300);
 
-    // 4. Animation khatam hone par cleanup
+    // 5. Cleanup
     setTimeout(() => {
-        ripple.style.opacity = '0';
-        ripple.style.clipPath = `circle(0% at ${x}px ${y}px)`;
+        ripple.remove();
     }, 700);
 });
+
 // script.js
 
 // 1. SOS Button Logic
