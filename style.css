@@ -1,0 +1,74 @@
+/* Custom "Aegis" Polish - Add this in your <style> tag */
+
+/* Glassmorphism Effect for Cards */
+.card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+/* SOS Button Breathing Animation */
+.sos-breathing {
+    animation: breathing 2s ease-out infinite;
+}
+
+@keyframes breathing {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(239, 68, 68, 0.2); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+}
+
+/* Gradient Text for AEGIS */
+.gradient-text {
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Base Styles */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode specific adjustments */
+.text-slate-900 .card-glass {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.text-slate-900 .gradient-text {
+    background: linear-gradient(90deg, #1e40af, #6d28d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode specific adjustments (Already handled by Tailwind defaults) */
+.text-white .card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle Button Style */
+#theme-toggle {
+    transition: transform 0.2s;
+}
+
+#theme-toggle:active {
+    transform: scale(0.9);
+}
+
+#overlay {
+    height: 90vh; /* Itna upar aayega */
+    overflow-y: auto;
+}
+
+/* style.css */
+body {
+    min-height: vh; /* Extra height taaki scroll ho sake */
+}
