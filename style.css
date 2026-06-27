@@ -1,6 +1,49 @@
-/* Custom "Aegis" Polish - Add this in your <style> tag */
+/* =========================================
+   1. Base & Theme Variables
+   ========================================= */
+:root {
+    /* Dark Mode Defaults */
+    --bg-color: #020617;
+    --text-color: #ffffff;
+    --grad-start: #60a5fa;
+    --grad-end: #a78bfa;
+}
 
-/* Glassmorphism Effect for Cards */
+body.light-mode {
+    /* Light Mode Overrides */
+    --bg-color: #ffffff;
+    --text-color: #1e293b;
+    --grad-start: #1e40af;
+    --grad-end: #6d28d9;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: sans-serif; /* Ya jo tumhara font hai */
+}
+
+/* =========================================
+   2. Typography & Gradient
+   ========================================= */
+.text-dynamic {
+    color: var(--text-color);
+    transition: color 0.5s ease;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background 0.5s ease;
+}
+
+/* =========================================
+   3. Components (Cards & SOS)
+   ========================================= */
 .card-glass {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
@@ -8,12 +51,11 @@
     transition: all 0.3s ease;
 }
 
-.card-glass:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.5);
+body.light-mode .card-glass {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* SOS Button Breathing Animation */
 .sos-breathing {
     animation: breathing 2s ease-out infinite;
 }
@@ -24,73 +66,15 @@
     100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
 }
 
-/* Gradient Text for AEGIS */
-.gradient-text {
-    background: linear-gradient(90deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Base Styles */
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Light Mode specific adjustments */
-.text-slate-900 .card-glass {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.text-slate-900 .gradient-text {
-    background: linear-gradient(90deg, #1e40af, #6d28d9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Dark Mode specific adjustments (Already handled by Tailwind defaults) */
-.text-white .card-glass {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-
-/* style.css */
-body {
-    transition: background-color 0.1s;
-}
-
-#main-content {
-    position: relative;
-    z-index: 1; /* Content hamesha upar rahega */
-}
-
+/* =========================================
+   4. Ripple Logic (For Telegram Effect)
+   ========================================= */
 .ripple-layer {
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    z-index: 0; /* Background ke upar, content ke neeche */
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    z-index: 5; /* Content ke piche */
     pointer-events: none;
-}
-
-
-body {
-    background-color: #020617; /* Dark background */
-    margin: 0;
-    overflow-x: hidden;
-}
-
-/* Ye background ko handle karega */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    z-index: -1;
-    background-color: #ffffff; /* Light background */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-body.light-mode::before {
-    opacity: 1;
 }

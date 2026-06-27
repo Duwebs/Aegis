@@ -49,17 +49,26 @@
             <p class="text-xs text-slate-400">Configure</p>
         </div>
     </div>
+     </div>
 
-    <!-- Overlay Section (Hidden by default) -->
-    <div id="overlay" class="fixed inset-x-0 bottom-0 translate-y-[90%] transition-transform duration-700 ease-out bg-slate-900 border-t border-white/20 p-6 rounded-t-3xl shadow-2xl z-50 h-[90vh]">
-        <div class="w-12 h-1.5 bg-white/30 rounded-full mx-auto mb-6"></div>
-        <h2 class="text-xl font-bold mb-4">About Aegis</h2>
-        <div class="text-slate-400 text-sm space-y-4">
-            <p>Aegis is your digital shield. We ensure you stay connected to your loved ones.</p>
-            <h3 class="font-bold text-white">FAQ</h3>
-            <p><strong>How to trigger SOS?</strong><br>Simply tap the big red button.</p>
-        </div>
+<!-- Overlay Section (Updated with text-dynamic class) -->
+<div id="overlay" class="fixed inset-x-0 bottom-0 translate-y-[90%] transition-transform duration-700 ease-out bg-slate-900 border-t border-white/20 p-6 rounded-t-3xl shadow-2xl z-50 h-[90vh]">
+    <div class="w-12 h-1.5 bg-white/30 rounded-full mx-auto mb-6"></div>
+    
+    <!-- Yahan class="text-dynamic" add kar diya hai -->
+    <h2 class="text-xl font-bold mb-4 text-dynamic">About Aegis</h2>
+    
+    <div class="text-slate-400 text-sm space-y-4 text-dynamic">
+        <p>Aegis is your digital shield. We ensure you stay connected to your loved ones.</p>
+        
+        <!-- Yahan bhi text-dynamic, taaki FAQ ka color bhi change ho -->
+        <h3 class="font-bold text-dynamic">FAQ</h3>
+        
+        <p><strong class="text-dynamic">How to trigger SOS?</strong><br>Simply tap the big red button.</p>
     </div>
+</div>
+
+   
     
 <!-- Body ke bilkul niche -->
 <div id="ripple-overlay" class="fixed inset-0 z-[999] pointer-events-none" style="clip-path: circle(0% at 0 0); background-color: #ffffff; opacity: 0;"></div>
