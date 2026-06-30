@@ -90,3 +90,36 @@ window.addEventListener('scroll', () => {
         overlay.classList.remove('translate-y-0');
     }
 });
+
+// Copy, Paste, Cut aur Right-Click disable karne ke liye
+document.addEventListener('contextmenu', (e) => e.preventDefault()); // Right click disable
+
+document.addEventListener('copy', (e) => {
+    e.preventDefault();
+    alert("Copying is disabled!");
+});
+
+document.addEventListener('cut', (e) => {
+    e.preventDefault();
+    alert("Cutting is disabled!");
+});
+
+document.addEventListener('keydown', (e) => {
+    // Ctrl+C, Ctrl+V, Ctrl+U, F12 disable karne ke liye
+    if (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 'x')) {
+        e.preventDefault();
+    }
+    if (e.key === 'F12') {
+        e.preventDefault();
+    }
+});
+
+
+function sendWhatsApp(lat, lon) {
+    const message = encodeURIComponent(`🚨 EMERGENCY SOS! Meri location ye hai: https://www.google.com/maps?q=${lat},${lon}`);
+    const phoneNumber = "918882947521"; // Jisko bhejna hai uska number
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Auto-redirect to WhatsApp
+    window.open(whatsappURL, '_blank');
+}
