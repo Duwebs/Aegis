@@ -82,11 +82,11 @@ window.addEventListener('scroll', () => {
     // Check agar user page ke end par hai
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
         // Page ke end par aate hi overlay trigger ho jayega
-        overlay.classList.remove('translate-y-[90%]');
+        overlay.classList.remove('translate-y-full');
         overlay.classList.add('translate-y-0');
     } else {
         // Agar user wapas upar jata hai, toh overlay wapas chala jayega
-        overlay.classList.add('translate-y-[90%]');
+        overlay.classList.add('translate-y-full');
         overlay.classList.remove('translate-y-0');
     }
 });
