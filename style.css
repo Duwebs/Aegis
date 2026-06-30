@@ -78,3 +78,25 @@ body.light-mode .card-glass {
     z-index: 5; /* Content ke piche */
     pointer-events: none;
 }
+
+
+/* style.css mein add karein */
+.sos-active {
+    background-color: #7f1d1d !important; /* Dark red */
+    transform: scale(0.95); /* Thoda chhota ho jayega dabane par */
+}
+
+
+#progress-ring {
+    stroke: #ef4444; /* Red color */
+    transition: stroke-dashoffset 3s linear;
+}
+
+
+
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* IE 10+ and Edge */
+    user-select: none;         /* Standard syntax */
+    -webkit-touch-callout: none; /* iOS Safari disable copy menu */
+}
